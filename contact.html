@@ -143,7 +143,7 @@
                     <div class="col-md-6">
                         <div class="wow fadeInUp" data-wow-delay="0.5s">
                             <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                            <form>
+                            <form id="contactForm">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
@@ -170,14 +170,12 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <a href="https://wa.me/6289665130301?text=Hello%20World">
-                                            <button class="btn btn-primary w-100 py-3" type="button">Send Message</button>
-                                        </a>
+                                        <button class="btn btn-primary w-100 py-3" type="button" onclick="sendMessage()">Send Message</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -212,6 +210,22 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        function sendMessage() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+
+        var whatsappUrl = 'https://wa.me/6289665130301?text=' 
+            + 'Name: ' + encodeURIComponent(name) + '%0A'
+            + 'Email: ' + encodeURIComponent(email) + '%0A'
+            + 'Subject: ' + encodeURIComponent(subject) + '%0A'
+            + 'Message: ' + encodeURIComponent(message);
+
+        window.open(whatsappUrl, '_blank');
+    }
+    </script>
 </body>
 
 </html>
