@@ -505,7 +505,9 @@
                                     <p>Eirmod sed ipsum dolor sit rebum magna erat. Tempor lorem kasd vero ipsum sit sit diam justo sed vero dolor duo.</p>
                                 </div>
                                 <a href="https://wa.me/+6289665130301" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
-                                <a href="" class="btn btn-dark py-3 px-4"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
+                                <a href="#" class="btn btn-dark py-3 px-4" id="appointment-btn">
+                                    <i class="fa fa-calendar-alt me-2"></i>Get Appointment
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -546,6 +548,25 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('appointment-btn').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Data untuk event
+            const title = 'Appointment';
+            const description = 'This is a description of the appointment';
+            const location = '123 Main St, Anytown, USA';
+            const startDate = '20240624T090000Z'; // Format: YYYYMMDDTHHmmssZ
+            const endDate = '20240624T100000Z';   // Format: YYYYMMDDTHHmmssZ
+
+            // Format URL Google Calendar
+            const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}`;
+
+            // Redirect ke URL Google Calendar
+            window.location.href = googleCalendarUrl;
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 
 </html>
